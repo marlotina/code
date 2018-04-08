@@ -1,0 +1,22 @@
+// tsconfig.json
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "sourceMap": true,
+        "watch": true,
+        "outDir": "build",
+        "experimentalDecorators": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+
+
+//module: dentro de las opciones de configuración podemos indicar cómo sistema de módulos queremos que genere tsc. Cómo estamos trabajando en NodeJS y este usa el sistema de módulos de commonjs usamos ese. Tenemos más opciones que dependiendo el contexto nos puede ser útiles.
+//target: indicamos la especificación de EcmaScript que queremos satisfacer. Aunque NodeJS ya tiene soporte para ES6 yo recomiendo usar todavía la ES5 para que sea compatible con todas las versiones de NodeJS.
+//sourceMap: Nos genera un fichero sourceMap por cada .js transpilado que apunta al fichero .ts original. Necesario si queremos tener depuración de la aplicación.
+//watch: si indicamos a true este parámetro haremos que una vez que se lance el proceso de transpilación, siempre se ‘autotranspile’ cada vez que se guarde un nuevo fichero. Es nuestro observador particular.
+//outDir: Nos permite indicar la ruta donde queremos guardas los compilados. En este caso guardaremos los ficheros en la carpeta ‘build’ que se autogenerará al transpilar.
+//exclude: Nos permite excluir directorios de la compilación. De esta manera podemos indicar que node_modules no es necesario que vuelva a transpilar. Ahorramos tiempos.
