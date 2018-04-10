@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { CustomPipe } from '../../src/app/pipes/customPipe.pipe';
 import { DomSecurePipe } from './pipes/dom-secure.pipe';
+import { Password } from './pipes/password.pipe';
 
 registerLocaleData(localeEs);
  
@@ -25,7 +26,8 @@ registerLocaleData(localeEs);
  declarations: [ 
    AppComponent,
    CustomPipe,
-   DomSecurePipe
+   DomSecurePipe,
+   Password
    ],
  providers: [ 
    { 

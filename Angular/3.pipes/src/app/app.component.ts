@@ -29,4 +29,5 @@ export class AppComponent {
 
   name2 = "riCk aNd mOrTy"
   video='Y2pAYKJcG4g';
+  activate:boolean=true;
 }

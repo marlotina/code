@@ -119,6 +119,7 @@
           <td>customName:false</td>
           <td>{{name2 | customName:false}}</td>
         </tr>
+        
       
     </tbody>
   </table>
@@ -139,7 +140,30 @@
 
   <br><br><br><br><br><br><br><br><br>
 
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Variable</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{name}}</th>
+        <td>
+          password:{{activate}}
+          <br/>
+          <button 
+            (click)="activate = !activate"
+            type="button"
+            class="btn btn-outline-primary">on/off</button>
+        </td>
 
+        <td>{{name | password:activate}}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
 
