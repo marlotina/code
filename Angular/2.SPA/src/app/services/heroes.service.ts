@@ -65,7 +65,21 @@ private heros:Hero[]=[
 
     getHero(index:string):Hero{
       return this.heros[index];
-  }
+    }
+
+    searchHero(value:string):Hero[]{
+        let heroArr:Hero[] =[];
+        value = value.toLocaleLowerCase();
+
+        for(let hero of this.heros){
+          let name = hero.nombre.toLocaleLowerCase();
+          if(name.indexOf(value) >= 0){
+              heroArr.push(hero);
+          }
+        }
+
+        return heroArr;
+    }
 }
 
 export interface Hero{
