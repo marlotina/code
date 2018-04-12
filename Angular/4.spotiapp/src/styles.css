@@ -7,6 +7,14 @@ body{
   .top30{
     margin-top: 15px;
   }
+
+  .imgCircle{
+    border-radius: 100%
+  }
+
+  .img50{
+    width: 50px;
+  }
   
   hr{
     border-color: white;
