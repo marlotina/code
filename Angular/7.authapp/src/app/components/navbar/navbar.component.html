@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">AuthAppt</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkAtive="active">
+        <a class="nav-link" 
+          [routerLink]="['home']">
+          Home
+        </a>
+      </li>
+      <li class="nav-item" routerLinkAtive="active">
+        <a class="nav-link" 
+        [routerLink]="['prices']">Prices</a>
+      </li>
+      <li class="nav-item" routerLinkAtive="active"
+        *ngIf="authService.isAuthenticated()">
+        <a class="nav-link"  
+          [routerLink]="['protected']">Protected</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <button type="button" (click)="login()"
+        *ngIf="!authService.isAuthenticated()"
+        class="btn btn-outline-primary btn-sm" >Login</button>
+      <button type="button" (click)="logout()"
+        *ngIf="authService.isAuthenticated()"
+        class="btn btn-outline-primary btn-sm">Logout</button>
+    </span>
+  </div>
+</nav>
