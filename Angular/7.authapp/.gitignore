@@ -42,9 +42,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-Angular/1.HelloWorld/node_modules/
-Angular/HelloWorld/
-pipes/node_modules/
-Angular/spotiapp/node_modules/
-Angular/miscelania/node_modules/
-Angular/authapp/node_modules/
