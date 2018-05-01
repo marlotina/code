@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>Pending list</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+
+    <ion-content padding *ngIf="(_listWhishesServices.lists | pendings).length  === 0">
+      <ion-grid >
+        <ion-row>
+          <ion-col class="text-center">
+            <ion-icon ios="ios-sunny" md="md-sunny"></ion-icon>
+            <p>No lists...</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+    
+    <ion-card *ngFor="let list of _listWhishesServices.lists | pendings ;let i = index">
+      
+      <ion-item color="darck" (click)="seeDetails(list, i)">
+       <h2>{{list.name}}</h2>
+       <ion-note item-richt>
+         {{list.items.length}}
+       </ion-note>
+      </ion-item>
+      <ion-card-content>
+        <ion-list>
+          <ion-item  (click)="seeDetails(list, i)" *ngFor="let item of list.items | slice:0:2"> 
+            <ion-icon *ngIf="!item.done" ios="ios-square-outline" md="md-square-outline"></ion-icon>
+            <ion-icon *ngIf="item.done" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+              {{item.name}}
+          </ion-item>
+          <ion-item>
+            <ion-icon class="text-center" *ngIf="list.items.length > 2" 
+            color="primary" ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    
+    </ion-card>
+    <ion-fab right bottom>
+        <button ion-fab color="primary" (click)="goToAddItem()">
+          <ion-icon ios="ios-add" md="md-add"></ion-icon>
+        </button>
+      </ion-fab>
+  </ion-content>

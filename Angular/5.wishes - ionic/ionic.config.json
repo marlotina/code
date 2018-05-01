@@ -1,0 +1,8 @@
+{
+  "name": "wishes",
+  "app_id": "1b38faac",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
