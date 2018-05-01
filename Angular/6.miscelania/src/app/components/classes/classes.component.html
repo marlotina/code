@@ -1,0 +1,14 @@
+<h3>async process</h3>
+
+<button (click)="executeProcess()"
+    type="button" name="button" 
+    class="btn btn-primary"
+    [disabled]="loading">
+    <i [ngClass]="{
+        'fa-save':!loading , 
+        'fa-refresh fa-spin':loading
+    }"
+    class="fa"></i>
+    <span *ngIf="!loading" >Save changes</span>
+    <span *ngIf="loading">saveing...</span>
+</button>
