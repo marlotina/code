@@ -7,7 +7,7 @@ import { AuthGuard } from './service/auth-guard.service';
 
 
 
-const routes: Routes = [
+const APP_ROUTES: Routes = [
     { 
         path: '', 
         component: HomeComponent 
@@ -31,8 +31,4 @@ const routes: Routes = [
     { path: '**', component: HomeComponent }
 ];
 
-@NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-})
-export class FeatureRoutingModule {}
+export const APP_ROUTING= RouterModule.forRoot(APP_ROUTES);
