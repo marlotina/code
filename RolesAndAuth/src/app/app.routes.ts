@@ -4,6 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
 import { AuthGuard } from './service/auth-guard.service';
+import { NewPage2Component } from './components/page2/new-page2/new-page2.component';
+import { EditPage2Component } from './components/page2/edit-page2/edit-page2.component';
 
 
 
@@ -28,9 +30,8 @@ const APP_ROUTES: Routes = [
             roles: ['Admin','MasterDataUser','MasterDataManager']
         },
         children:[
-            { path: 'new', component: NewUserComponent },
-            { path: 'edit', component: EditUserComponent },
-            { path: 'details', component: UserDetailComponent },
+            { path: 'new', component: NewPage2Component },
+            { path: 'edit', component: EditPage2Component },
             { path: '**', pathMatch:'full', redirectTo:'new' }
         ]
     },
