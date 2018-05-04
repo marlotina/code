@@ -30,12 +30,19 @@ const APP_ROUTES: Routes = [
             roles: ['Admin','MasterDataUser','MasterDataManager']
         },
         children:[
-            { path: 'new', component: NewPage2Component },
+            { 
+                path: 'new', 
+                component: NewPage2Component,
+                canActivate: [AuthGuard],
+                data:{
+                    roles: ['Admin','MasterDataUser']
+                },
+            },
             { path: 'edit', component: EditPage2Component },
             { path: '**', pathMatch:'full', redirectTo:'new' }
         ]
     },
-    { path: '**', component: HomeComponent }
+    { path: '**', component: HomeComponent } 
 ];
 
 export const APP_ROUTING= RouterModule.forRoot(APP_ROUTES);

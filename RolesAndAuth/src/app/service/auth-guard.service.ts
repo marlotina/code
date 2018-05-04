@@ -8,17 +8,16 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      console.log("canActivate");
-      console.log(state);
       if (!this.authService.isAuthenticated){
         this.authService.showLogin(state.url);
         return false;
       }
       
-      if(this.isValidRole(route)){
+      if(!this.isValidRole(route)){
+        return false;
       }
       
-      return false;
+      return true;
   }
 
   isValidRole(route){
@@ -26,6 +25,6 @@ export class AuthGuard implements CanActivate {
     console.log("isValidRole");
     console.log(route);
 
-    return (roles == null || roles.indexOf("the-logged-user-role") != -1);
+    return (roles == null || roles.indexOf("MasterDataManager") != -1);
   }
 }
