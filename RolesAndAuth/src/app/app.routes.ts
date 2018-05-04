@@ -26,7 +26,13 @@ const APP_ROUTES: Routes = [
         canActivate: [AuthGuard],
         data:{
             roles: ['Admin','MasterDataUser','MasterDataManager']
-        }
+        },
+        children:[
+            { path: 'new', component: NewUserComponent },
+            { path: 'edit', component: EditUserComponent },
+            { path: 'details', component: UserDetailComponent },
+            { path: '**', pathMatch:'full', redirectTo:'new' }
+        ]
     },
     { path: '**', component: HomeComponent }
 ];
