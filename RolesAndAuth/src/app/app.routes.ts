@@ -6,6 +6,7 @@ import { Page2Component } from './components/page2/page2.component';
 import { AuthGuard } from './service/auth-guard.service';
 import { NewPage2Component } from './components/page2/new-page2/new-page2.component';
 import { EditPage2Component } from './components/page2/edit-page2/edit-page2.component';
+import { HomePageComponent } from './components/page2/home-page/home-page.component';
 
 
 
@@ -30,6 +31,15 @@ const APP_ROUTES: Routes = [
             roles: ['Admin','MasterDataUser','MasterDataManager']
         },
         children:[
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { 
+                path: 'home', 
+                component: HomePageComponent,
+                canActivate: [AuthGuard],
+                data:{
+                    roles: ['Admin','MasterDataUser','MasterDataManager']
+                },
+            },
             { 
                 path: 'new', 
                 component: NewPage2Component,

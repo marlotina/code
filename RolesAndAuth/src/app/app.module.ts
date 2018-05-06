@@ -11,6 +11,7 @@ import { AuthGuard } from './service/auth-guard.service';
 import { AuthenticationService } from './service/authentication.service';
 import { NewPage2Component } from './components/page2/new-page2/new-page2.component';
 import { EditPage2Component } from './components/page2/edit-page2/edit-page2.component';
+import { HomePageComponent } from './components/page2/home-page/home-page.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { EditPage2Component } from './components/page2/edit-page2/edit-page2.com
     Page1Component,
     Page2Component,
     NewPage2Component,
-    EditPage2Component
+    EditPage2Component,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
