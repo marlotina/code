@@ -1,3 +1,5 @@
-<p>
-  news-hawker works!
-</p>
+<ng-container *ngIf="user | async; let user">
+  <div>
+     by: {{ user.id }}, <i>karma: {{user.karma}}</i>
+  </div>
+</ng-container>

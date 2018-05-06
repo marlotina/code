@@ -15,6 +15,7 @@ import { HomePageComponent } from './components/page2/home-page/home-page.compon
 import { HackerNewsService } from './service/hacker-news-service.service';
 import { CacheService } from './service/cache-content.service';
 import { NewsPageComponent } from './components/page-hawker/news-page.component';
+import { InfiniteScrollerDirective } from './InfiniteScroller.directive';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NewsPageComponent } from './components/page-hawker/news-page.component'
     NewPage2Component,
     EditPage2Component,
     HomePageComponent,
-    NewsPageComponent
+    NewsPageComponent,
+    InfiniteScrollerDirective
   ],
   imports: [
     BrowserModule,
