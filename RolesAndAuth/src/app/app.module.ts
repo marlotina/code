@@ -17,6 +17,8 @@ import { CacheService } from './service/cache-content.service';
 import { NewsPageComponent } from './components/page-hawker/news-page.component';
 import { InfiniteScrollerDirective } from './InfiniteScroller.directive';
 
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InfiniteScrollerDirective } from './InfiniteScroller.directive';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule,
+    HttpModule
   ],
   providers: [
     AuthGuard,
