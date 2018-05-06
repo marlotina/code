@@ -19,6 +19,7 @@ import { InfiniteScrollerDirective } from './InfiniteScroller.directive';
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NewsCachePageComponent } from './components/news-cache-page/news-cache-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpModule } from '@angular/http';
     EditPage2Component,
     HomePageComponent,
     NewsPageComponent,
-    InfiniteScrollerDirective
+    InfiniteScrollerDirective,
+    NewsCachePageComponent
   ],
   imports: [
     BrowserModule,

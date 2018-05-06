@@ -12,6 +12,7 @@ export class NewsPageComponent implements OnInit {
 
   @Input()
   set id(id: string) {
+    console.log("$$$$$$$$ getStories NewsPageComponent" );
     this.user = this.cacheService.get(id, this.hackerNewsService.getUser(id));
   };
 
@@ -23,5 +24,4 @@ export class NewsPageComponent implements OnInit {
   ngOnInit() {
 
   }
-
 }

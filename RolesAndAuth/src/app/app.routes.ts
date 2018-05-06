@@ -8,6 +8,7 @@ import { NewPage2Component } from './components/page2/new-page2/new-page2.compon
 import { EditPage2Component } from './components/page2/edit-page2/edit-page2.component';
 import { HomePageComponent } from './components/page2/home-page/home-page.component';
 import { NewsPageComponent } from './components/page-hawker/news-page.component';
+import { NewsCachePageComponent } from './components/news-cache-page/news-cache-page.component';
 
 
 
@@ -15,6 +16,10 @@ const APP_ROUTES: Routes = [
     { 
         path: '', 
         component: HomeComponent 
+    },
+    { 
+        path: 'NewsCachePage', 
+        component: NewsCachePageComponent 
     },
     { 
         path: 'newspage', 

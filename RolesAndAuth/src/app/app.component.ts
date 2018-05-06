@@ -22,6 +22,7 @@ export class AppComponent {
    }
 
   getStories() {
+    console.log("¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ getStories AppComponent" );
     return this.hackerNewsSerivce.getLatestStories(this.currentPage).do(this.processData);
   }
 

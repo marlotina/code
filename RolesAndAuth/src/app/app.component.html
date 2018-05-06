@@ -17,21 +17,25 @@
     <h2><a [routerLink]="['newspage']">newspage</a></h2>
   </li>
   <li>
+    <h2><a [routerLink]="['NewsCachePage']">NewsCachePage</a></h2>
+  </li>
+  <li>
     <h2><a [routerLink]="['page2']">page2</a></h2>
     <ul>
       <li><h3><a [routerLink]="['page2/new']">new</a></h3></li>
       <li><h3><a [routerLink]="['page2/edit']">edit</a></h3></li>
+      
     </ul>
   </li>
 </ul>
 
 
-<ul id="infinite-scroller" appInfiniteScroller scrollPerecnt="70" [immediateCallback]="true" [scrollCallback]="scrollCallback">
+<!--<ul id="infinite-scroller" appInfiniteScroller scrollPerecnt="70" [immediateCallback]="true" [scrollCallback]="scrollCallback">
   <li *ngFor="let item of news">
     <div>{{item.title}}</div>
     <app-news-page [id]="item.user"></app-news-page>
   </li>
-</ul>
+</ul>-->
 
 
 <router-outlet></router-outlet>
