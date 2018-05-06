@@ -12,6 +12,9 @@ import { AuthenticationService } from './service/authentication.service';
 import { NewPage2Component } from './components/page2/new-page2/new-page2.component';
 import { EditPage2Component } from './components/page2/edit-page2/edit-page2.component';
 import { HomePageComponent } from './components/page2/home-page/home-page.component';
+import { HackerNewsService } from './service/hacker-news-service.service';
+import { CacheService } from './service/cache-content.service';
+import { NewsPageComponent } from './components/page-hawker/news-page.component';
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import { HomePageComponent } from './components/page2/home-page/home-page.compon
     Page2Component,
     NewPage2Component,
     EditPage2Component,
-    HomePageComponent
+    HomePageComponent,
+    NewsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { HomePageComponent } from './components/page2/home-page/home-page.compon
   ],
   providers: [
     AuthGuard,
-    AuthenticationService
+    AuthenticationService,
+    HackerNewsService,
+    CacheService
   ],
   bootstrap: [AppComponent]
 })

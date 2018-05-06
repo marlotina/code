@@ -7,6 +7,7 @@ import { AuthGuard } from './service/auth-guard.service';
 import { NewPage2Component } from './components/page2/new-page2/new-page2.component';
 import { EditPage2Component } from './components/page2/edit-page2/edit-page2.component';
 import { HomePageComponent } from './components/page2/home-page/home-page.component';
+import { NewsPageComponent } from './components/page-hawker/news-page.component';
 
 
 
@@ -14,6 +15,10 @@ const APP_ROUTES: Routes = [
     { 
         path: '', 
         component: HomeComponent 
+    },
+    { 
+        path: 'newspage', 
+        component: NewsPageComponent
     },
     { 
         path: 'page1', 
