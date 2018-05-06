@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
     let roles = route.data["roles"] as Array<string>;
     console.log("isValidRole");
     console.log(route);
-
+    console.log("reuslt:  " + (roles == null || roles.indexOf("MasterDataManager")));
     return (roles == null || roles.indexOf("MasterDataManager") != -1);
   }
 }

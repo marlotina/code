@@ -38,7 +38,13 @@ const APP_ROUTES: Routes = [
                     roles: ['Admin','MasterDataUser']
                 },
             },
-            { path: 'edit', component: EditPage2Component },
+            { 
+                path: 'edit', 
+                component: EditPage2Component,
+                data:{
+                    roles: ['Admin','MasterDataUser','MasterDataManager']
+                }
+            },
             { path: '**', pathMatch:'full', redirectTo:'new' }
         ]
     },
