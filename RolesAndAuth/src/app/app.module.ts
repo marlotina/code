@@ -20,6 +20,8 @@ import { InfiniteScrollerDirective } from './InfiniteScroller.directive';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NewsCachePageComponent } from './components/news-cache-page/news-cache-page.component';
+import { CacheServiceService } from './service/cache-service.service';
+import { HackerNewsServiceOfflineService } from './service/hacker-news-service-offline.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { NewsCachePageComponent } from './components/news-cache-page/news-cache-
     AuthGuard,
     AuthenticationService,
     HackerNewsService,
-    CacheService
+    CacheService,
+    CacheServiceService,
+    HackerNewsServiceOfflineService
   ],
   bootstrap: [AppComponent]
 })

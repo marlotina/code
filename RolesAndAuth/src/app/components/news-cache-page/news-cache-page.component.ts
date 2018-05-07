@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { CacheService } from '../../service/cache-content.service';
-import { HackerNewsService } from '../../service/hacker-news-service.service';
+import { BrowserModule } from '@angular/platform-browser'
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
+import { HackerNewsServiceOfflineService } from '../../service/hacker-news-service-offline.service';
 
 @Component({
   selector: 'app-news-cache-page',
@@ -8,27 +13,37 @@ import { HackerNewsService } from '../../service/hacker-news-service.service';
 })
 export class NewsCachePageComponent implements OnInit {
 
-  user: any;
-  news: Array<any> = [];
+  title = 'Angular Cache Service with RxJS';
 
-  constructor(private cacheService:CacheService,
-    private hackerNewsService: HackerNewsService) { }
+  users: Observable<any>;
+  loadMore$ = new Subject<string>();
+
+
+  constructor(
+    private hackerNewsSerivce: HackerNewsServiceOfflineService,
+    private cacheService: CacheService
+  ) {
+  }
 
   ngOnInit() {
+
+    this.users = this.loadMore$
+      .switchMap((key) => this.cacheService.get(key, this.hackerNewsSerivce.getUser(key)))
+      .scan((acc, curr) => {
+        acc.push(curr)
+        return acc
+      }, []);
   }
 
-
-  getStories(pageNumber){
-    let newsResponse = this.cacheService.get(pageNumber, this.hackerNewsService.getLatestStories(pageNumber));
-    
-    this.news = this.news.concat(newsResponse);
-
-    console.log(this.news);
+  getValue(key: string) {
+    this.loadMore$.next(key);
   }
 
-  getUser(id){
-    this.user = this.cacheService.get(id, this.hackerNewsService.getUser(id));
+  setValue(key: string, value: string) {
+    this.cacheService.set(key, {
+      "DataValue": value,
+      "Id": key
+    })
   }
-
 
 }

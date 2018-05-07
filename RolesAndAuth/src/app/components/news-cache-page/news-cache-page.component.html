@@ -1,8 +1,14 @@
-
-<button class="btn btn-primary" type="button" (click)="getStories(1)">1</button>
-<button class="btn btn-primary" type="button" (click)="getStories(2)">2</button>
-<button class="btn btn-primary" type="button" (click)="getStories(3)">3</button>
-
-{{stories}}
-
-<button class="btn btn-primary" type="button" (click)="getUser()">usuario</button>
+<div>
+	<h2>{{title}}</h2>
+	<button (click)="getValue(100)">Get 100</button>
+	<button (click)="getValue(200)">Get 200</button>
+	<button (click)="getValue(300)">Get 300</button>
+	<ul>
+		<li *ngFor="let item of (users | async)">
+			<div>{{item.Id}}: {{item.DataValue}}</div>
+		</li>
+	</ul>
+	<button (click)="setValue(100, 'new 100 value')">Set 100</button>
+	<button (click)="setValue(200, 'new 200 value')">Set 200</button>
+	<button (click)="setValue(300, 'new 300 value')">Set 300</button>
+</div>
