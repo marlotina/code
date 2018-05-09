@@ -1,0 +1,6 @@
+<ul id="infinite-scroller" appInfiniteScroller scrollPerecnt="70" [immediateCallback]="true" [scrollCallback]="scrollCallback">
+  <li *ngFor="let item of news">
+    <div>{{item.title}}</div>
+    <app-news-page [id]="item.user"></app-news-page>
+  </li>
+</ul>

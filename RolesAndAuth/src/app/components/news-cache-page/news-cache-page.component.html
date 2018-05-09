@@ -11,4 +11,12 @@
 	<button (click)="setValue(100, 'new 100 value')">Set 100</button>
 	<button (click)="setValue(200, 'new 200 value')">Set 200</button>
 	<button (click)="setValue(300, 'new 300 value')">Set 300</button>
+
+	<button (click)="getValue(300)">Get 300</button>
+	<ul>
+		<li *ngFor="let item of (users | async)">
+			<div>{{item.Id}}: {{item.DataValue}}</div>
+		</li>
+	</ul>
+
 </div>
