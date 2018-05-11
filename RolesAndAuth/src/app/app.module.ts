@@ -23,6 +23,8 @@ import { NewsCachePageComponent } from './components/news-cache-page/news-cache-
 import { CacheServiceService } from './service/cache-service.service';
 import { HackerNewsServiceOfflineService } from './service/hacker-news-service-offline.service';
 import { CachePageComponent } from './components/cache-page/cache-page.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { ConfirmDialogComponentComponent } from './components/confirm-dialog-component/confirm-dialog-component.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { CachePageComponent } from './components/cache-page/cache-page.component
     NewsPageComponent,
     InfiniteScrollerDirective,
     NewsCachePageComponent,
-    CachePageComponent
+    CachePageComponent,
+    PopUpComponent,
+    ConfirmDialogComponentComponent
   ],
   imports: [
     BrowserModule,

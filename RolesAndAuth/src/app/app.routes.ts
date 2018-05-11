@@ -10,6 +10,7 @@ import { HomePageComponent } from './components/page2/home-page/home-page.compon
 import { NewsPageComponent } from './components/page-hawker/news-page.component';
 import { NewsCachePageComponent } from './components/news-cache-page/news-cache-page.component';
 import { CachePageComponent } from './components/cache-page/cache-page.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
 
 
 
@@ -29,6 +30,10 @@ const APP_ROUTES: Routes = [
     { 
         path: 'newspage', 
         component: NewsPageComponent
+    },
+    { 
+        path: 'popup', 
+        component: PopUpComponent
     },
     { 
         path: 'page1', 
