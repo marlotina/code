@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.
+<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -16,10 +16,13 @@
     <h2><a [routerLink]="['newspage']">newspage</a></h2>
   </li>
   <li>
-    <h2><a href="/">redirec to home</a></h2>
+    <h2><a [routerLink]="['NewsCachePage']">NewsCachePage</a></h2>
   </li>
   <li>
-    <h2><a [routerLink]="['NewsCachePage']">NewsCachePage</a></h2>
+    <h2><a [routerLink]="['popup']">popup</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['cachePage']">cachePage</a></h2>
   </li>
   <li>
     <h2><a [routerLink]="['page2']">page2</a></h2>
@@ -32,25 +35,7 @@
 </ul>
 
 
-<router-outlet></router-outlet>-->
 
 
-<div>
-  <h2>{{title}}</h2>
-  <div>
-    <p>Github Repo: <a href="https://github.com/ashwin-sureshkumar/angular-cache-service-blog" target="_blank">Angular Cache Service with RxJS</a></p>
-    <p>Blog Post: <a href="https://medium.com/@Sureshkumar_Ash/angular-2-simple-infinite-scroller-directive-with-rxjs-observables-a989b12d4fb1">Angular  —  Simple In Memory Cache Service on the UI with RxJS</a></p>
-    <p>Stackblitz Url : <a href="https://stackblitz.com/edit/angular-simple-cache-service-with-rxjs">https://stackblitz.com/edit/angular-simple-cache-service-with-rxjs</a>
-  </div>
-  <ul id="infinite-scroller" appInfiniteScroller scrollPerecnt="70" [immediateCallback]="true" [scrollCallback]="scrollCallback">
-    <li *ngFor="let item of news">
-      <div>{{item.title}}</div>
-      <app-news-author [id]="item.user"></app-news-author>
-    </li>
-  </ul>
-  <div>
-      <h3>Related Blogs</h3>
-      <p>Github Repo: <a href="https://github.com/ashwin-sureshkumar/angular-infinite-scroller" target="_blank">Angular Infinite Scroller</a></p>
-      <p>Blog Post: <a href="https://medium.com/@Sureshkumar_Ash/angular-2-simple-infinite-scroller-directive-with-rxjs-observables-a989b12d4fb1"> Angular —Simple Infinite scroller directive with RxJS Observables</a></p>
-    </div>
-</div>
+
+<router-outlet></router-outlet>

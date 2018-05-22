@@ -8,25 +8,31 @@ export class HackerNewsServiceOfflineService {
 
   constructor(private http: Http) {
     this.usersApiDataOffline = JSON.parse(`{
-  "100": {
-    "DataValue": "First Value",
-    "Id": "100"
-  },
-  "200": {
-    "DataValue": "Second Value",
-    "Id": "200"
-  },
-  "300": {
-    "DataValue": "Thrid Value",
-    "Id": "300"
+              "100": {
+                "DataValue": "First Value",
+                "Id": "100"
+              },
+              "200": {
+                "DataValue": "Second Value",
+                "Id": "200"
+              },
+              "300": {
+                "DataValue": "Thrid Value",
+                "Id": "300"
+              }
+            }`);
   }
-}`);
+
+  getAllUser(){
+    return Observable.of(this.usersApiDataOffline).delay(100);
   }
 
   getUser(id: string) {
     let user = this.usersApiDataOffline[id];
     return Observable.of(user).delay(100);
   }
+
+  
 
   getUsers(ids: string[]): Observable<number[]> {
 

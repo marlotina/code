@@ -22,7 +22,9 @@ import { HttpModule } from '@angular/http';
 import { NewsCachePageComponent } from './components/news-cache-page/news-cache-page.component';
 import { CacheServiceService } from './service/cache-service.service';
 import { HackerNewsServiceOfflineService } from './service/hacker-news-service-offline.service';
-import { NewsAuthorComponent } from './news-author/news-author.component';
+import { CachePageComponent } from './components/cache-page/cache-page.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { ConfirmDialogComponentComponent } from './components/confirm-dialog-component/confirm-dialog-component.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NewsAuthorComponent } from './news-author/news-author.component';
     NewsPageComponent,
     InfiniteScrollerDirective,
     NewsCachePageComponent,
-    NewsAuthorComponent
+    CachePageComponent,
+    PopUpComponent,
+    ConfirmDialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { NewsAuthorComponent } from './news-author/news-author.component';
     HackerNewsService,
     CacheService,
     CacheServiceService,
-    HackerNewsServiceOfflineService
+    HackerNewsServiceOfflineService,
+    HackerNewsService
   ],
   bootstrap: [AppComponent]
 })
