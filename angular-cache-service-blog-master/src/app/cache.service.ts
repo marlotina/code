@@ -14,15 +14,9 @@ interface CacheContent {
  */
 export class CacheService {
   private cache: Map<string, CacheContent> = new Map<string, CacheContent>();
-  private inFlightObservables: Map<string, Subject<any>> = new Map<string, Subject<any>>();
   readonly DEFAULT_MAX_AGE: number = 300000;
 
-  /**
-   * Gets the value from cache if the key is provided.
-   * If no value exists in cache, then check if the same call exists
-   * in flight, if so return the subject. If not create a new
-   * Subject inFlightObservable and return the source observable.
-   */
+
   get(key: string, fallback?: Observable<any>, maxAge?: number): Observable<any> | Subject<any> {
 
     if (this.hasValidCachedValue(key)) {
@@ -34,10 +28,7 @@ export class CacheService {
       maxAge = this.DEFAULT_MAX_AGE;
     }
 
-    if (this.inFlightObservables.has(key)) {
-      return this.inFlightObservables.get(key);
-    } else if (fallback && fallback instanceof Observable) {
-      this.inFlightObservables.set(key, new Subject());
+    if (fallback && fallback instanceof Observable) {
       console.log(`%c Calling api for ${key}`, 'color: purple');
       return fallback.do((value) => { this.set(key, value, maxAge); });
     } else {
@@ -52,7 +43,6 @@ export class CacheService {
    */
   set(key: string, value: any, maxAge: number = this.DEFAULT_MAX_AGE): void {
     this.cache.set(key, { value: value, expiry: Date.now() + maxAge });
-    this.notifyInFlightObservers(key, value);
   }
 
   /**
@@ -60,23 +50,6 @@ export class CacheService {
    */
   has(key: string): boolean {
     return this.cache.has(key);
-  }
-
-  /**
-   * Publishes the value to all observers of the given
-   * in progress observables if observers exist.
-   */
-  private notifyInFlightObservers(key: string, value: any): void {
-    if (this.inFlightObservables.has(key)) {
-      const inFlight = this.inFlightObservables.get(key);
-      const observersCount = inFlight.observers.length;
-      if (observersCount) {
-        console.log(`%cNotifying ${inFlight.observers.length} flight subscribers for ${key}`, 'color: blue');
-        inFlight.next(value);
-      }
-      inFlight.complete();
-      this.inFlightObservables.delete(key);
-    }
   }
 
   /**

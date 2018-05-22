@@ -14,8 +14,12 @@ export class HackerNewsService {
   }
 
   getUser(id: string) {
+    
     return this.http.get(`${BASE_URL}/user/${id}`)
-      .map((response: Response) => response.json());
+      .map((response: Response) =>{
+        console.log(id);
+        response.json();
+    });
   }
 
 }
