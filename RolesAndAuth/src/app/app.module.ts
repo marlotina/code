@@ -22,6 +22,7 @@ import { HttpModule } from '@angular/http';
 import { NewsCachePageComponent } from './components/news-cache-page/news-cache-page.component';
 import { CacheServiceService } from './service/cache-service.service';
 import { HackerNewsServiceOfflineService } from './service/hacker-news-service-offline.service';
+import { NewsAuthorComponent } from './news-author/news-author.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HackerNewsServiceOfflineService } from './service/hacker-news-service-o
     HomePageComponent,
     NewsPageComponent,
     InfiniteScrollerDirective,
-    NewsCachePageComponent
+    NewsCachePageComponent,
+    NewsAuthorComponent
   ],
   imports: [
     BrowserModule,

@@ -13,14 +13,11 @@ import { NewsCachePageComponent } from './components/news-cache-page/news-cache-
 
 
 const APP_ROUTES: Routes = [
-    { 
-        path: '', 
-        component: HomeComponent 
-    },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { 
         path: 'NewsCachePage', 
         component: NewsCachePageComponent 
-    },
+    }, 
     { 
         path: 'newspage', 
         component: NewsPageComponent
