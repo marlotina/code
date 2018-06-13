@@ -17,7 +17,7 @@ export class CacheService {
   readonly DEFAULT_MAX_AGE: number = 300000;
 
 
-  get(key: string, fallback?: Observable<any>, maxAge?: number): Observable<any> | Subject<any> {
+  get(key: string, fallback: Observable<any>, maxAge?: number): Observable<any> | Subject<any> {
 
     if (this.hasValidCachedValue(key)) {
       console.log(`%cGetting from cache ${key}`, 'color: green');
