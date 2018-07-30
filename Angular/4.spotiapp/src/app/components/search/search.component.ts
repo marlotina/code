@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
+import {ItemSpoti} from '../../model/itemSpoti';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -10,6 +12,7 @@ import { SpotifyService } from '../../services/spotify.service';
 export class SearchComponent implements OnInit {
 
   searchParam:string='';
+  atistList: ItemSpoti[]=[];
 
   constructor(public _spotifyService: SpotifyService) { 
     
@@ -23,7 +26,7 @@ export class SearchComponent implements OnInit {
       return;
     }
     
-    this._spotifyService.getArtists(this.searchParam).subscribe();
+    this._spotifyService.getArtists(this.searchParam).subscribe(result => this.atistList = result);
   }
 
 }

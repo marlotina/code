@@ -18,7 +18,7 @@
         <div  *ngFor="let artist of _spotifyService.atistList"
           class="col-md-3 text-center puntero"
           [routerLink]="['/artist', artist.id]">
-            <img [src]="artist.images | withoutPhoto" [alt]="artist.name"
+            <img [src]="artist.photo | withoutPhoto" [alt]="artist.name"
                 class="img-thumbnail">
           <p>{{artist.name}}</p>
         </div>
