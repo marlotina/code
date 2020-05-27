@@ -1,0 +1,26 @@
+#Connection string service bus
+az servicebus namespace authorization-rule keys list \
+    --resource-group <resource group> \
+    --name RootManageSharedAccessKey \
+    --query primaryConnectionString \
+    --output tsv \
+    --namespace-name <namespace-name>
+
+
+#run project
+dotnet run -p privatemessagesender
+
+#Number of messages in the queue
+az servicebus queue show \
+    --resource-group <resource group> \
+    --name salesmessages \
+    --query messageCount \
+    --namespace-name <namespace-name>
+
+#topics
+az servicebus topic subscription show \
+    --resource-group <resource group> \
+    --namespace-name <namespace-name> \
+    --topic-name salesperformancemessages \
+    --name <topi>\
+    --query messageCount
