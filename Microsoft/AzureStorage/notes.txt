@@ -1,0 +1,13 @@
+az storage account create \
+        --resource-group <group> \
+        --kind StorageV2 \
+        --sku Standard_LRS \
+        --access-tier Cool \
+        --name <name>
+
+
+
+az storage account show-connection-string \
+    --resource-group <group> \
+    --name <name> \
+    --query connectionString
