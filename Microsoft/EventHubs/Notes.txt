@@ -1,0 +1,58 @@
+Configure default region and group when you are going to create a resource
+az configure --defaults group=learn-1dee8b9c-6527-4f13-8ff7-c9b58ab15e67 location=westeurope
+
+
+##Create event hub namespace
+NS_NAME=ehubns-$RANDOM
+az eventhubs namespace create --name $NS_NAME
+
+
+fetch the connection string for your event hubaz eventhubs namespace authorization-rule keys list \
+    --name RootManageSharedAccessKey \
+    --namespace-name $NS_NAME
+
+##Create event hub
+HUB_NAME=hubname-$RANDOM
+az eventhubs eventhub create --name $HUB_NAME --namespace-name $NS_NAME
+
+view details of the event hub
+az eventhubs eventhub show --namespace-name $NS_NAME --name $HUB_NAME
+
+Cetare storage account
+STORAGE_NAME=storagename$RANDOM
+az storage account create --name $STORAGE_NAME --sku Standard_RAGRS --encryption-service blob
+List storage keys
+az storage account keys list --account-name $STORAGE_NAME
+Get connection string
+az storage account show-connection-string -n $STORAGE_NAME
+Create container for messages
+az storage container create -n messages --connection-string "<connection string here>"
+
+
+
+https://github.com/Azure/azure-event-hubs
+Compile in java 
+mvn clean package -DskipTests
+
+
+
+execute on java
+java -jar ./target/simplesend-1.0.0-jar-with-dependencies.jar
+
+
+
+
+{
+  "aliasPrimaryConnectionString": null,
+  "aliasSecondaryConnectionString": null,
+  "keyName": "RootManageSharedAccessKey",
+  "primaryConnectionString": "Endpoint=sb://ehubns-10998.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=W9DKR+1/7bTNwmC3rM/ZxcdHeKceEwf3Jya5a7+DI6o=",
+  "primaryKey": "W9DKR+1/7bTNwmC3rM/ZxcdHeKceEwf3Jya5a7+DI6o=",
+  "secondaryConnectionString": "Endpoint=sb://ehubns-10998.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=V34p7LHF9oyKoZ6+2ZAZXtZokIr9ibK3FgecXYutgKQ=",
+  "secondaryKey": "V34p7LHF9oyKoZ6+2ZAZXtZokIr9ibK3FgecXYutgKQ="
+}
+
+
+{
+  "connectionString": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=storagename28161;AccountKey=/vfS/UDtHzG1qtLYJ38Y/vd6pgs+IbeBJCAF8DBDPfBp+hOYE0/1m74Xbo8uKnehY+fYM4LjolwczwY5xjzsqA=="
+}
