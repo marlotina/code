@@ -1,0 +1,19 @@
+az storage account create --name <name> -g <resource group> --kind <> --<>
+
+#Create app
+1. dotnet new console -n QueueApp
+2. cd QueueApp
+3. dotnet build
+
+#List of satorage accounts
+az storage account list
+
+#Get connection string
+az storage account show-connection-string --name <name> --resource-group <resource group>
+
+#Get message
+az storage message peek --queue-name <name queue> --connection-string <connection-string> 
+
+#Add package
+dotnet add package WindowsAzure.Storage
+
