@@ -10,4 +10,8 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Proof.Dependency.Injection.Standar\Proof.Dependency.Injection.Standar.csproj" />
+  </ItemGroup>
+
 </Project>

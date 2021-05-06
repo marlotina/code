@@ -1,24 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Patterns.Core.API.Api.Mapper.Contract;
-using Patterns.Core.API.Api.Mapper.Implementation;
-using Patterns.Core.API.Application.Contract;
-using Patterns.Core.API.Application.Implementation;
-using Patterns.Core.API.Application.Patterns.Contract;
-using Patterns.Core.API.Application.Patterns.Implementation;
-using Patterns.Core.API.Domain.Repository;
-using Patterns.Core.API.Infrastrucutre.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Proof.Dependency.Injection.Standar.Extensions;
 
 namespace Patterns.Core.API
 {
@@ -34,17 +20,7 @@ namespace Patterns.Core.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ISuperHumanMapper, SuperHumanMapper>();
-
-            services.AddTransient<IManageSuperHuman, ManageSuperHuman>();
-            services.AddTransient<ISuperHumanQueryServices, SuperHumanQueryServices>();
-
-            services.AddTransient<ISearchStrategy, SearchHerosStrategy>();
-            services.AddTransient<ISearchStrategy, SearchVilliansStrategy>();
-
-            services.AddTransient<IManageSuperHumanRepository, ManageSuperHumanDB>();
-            services.AddTransient<ISuperHumanQueryRepository, SuperHumanQueryDBRepository>();
-
+            services.AddProof(new IoC.IocModule());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
