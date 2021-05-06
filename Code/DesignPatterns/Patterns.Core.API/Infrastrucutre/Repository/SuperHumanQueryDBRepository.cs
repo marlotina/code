@@ -11,11 +11,11 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
     {
         public async Task<List<SuperHuman>> GetAll()
         {
-            SqlConnection conn = new SqlConnection("Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;");
             conn.Open();
 
             SqlCommand command = new SqlCommand("Select id from [TblSuperHuman]", conn);
-            using (SqlDataReader reader = command.ExecuteReader())
+            using (SqlDataReader reader = await command.ExecuteReaderAsync())
             {
                 if (await reader.ReadAsync())
                 {
@@ -30,12 +30,12 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
 
         public async Task<List<Hero>> GetGetHeros()
         {
-            SqlConnection conn = new SqlConnection("Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;");
             conn.Open();
 
             SqlCommand command = new SqlCommand("Select Id, Name, Type from [TblSuperHuman] where Type=2", conn);
             // int result = command.ExecuteNonQuery();
-            using (SqlDataReader reader = command.ExecuteReader())
+            using (SqlDataReader reader = await command.ExecuteReaderAsync())
             {
                 if (await reader.ReadAsync())
                 {
@@ -50,12 +50,12 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
 
         public async Task<List<Villain>> GetVillains()
         {
-            SqlConnection conn = new SqlConnection("Data Source=;Initial Catalog=;Persist Security Info=True;User ID=;Password=");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;");
             conn.Open();
 
             SqlCommand command = new SqlCommand("Select Id, Name, Type from [TblSuperHuman] where Type=1", conn);
 
-            using (SqlDataReader reader = command.ExecuteReader())
+            using (SqlDataReader reader = await command.ExecuteReaderAsync())
             {
                 if (await reader.ReadAsync())
                 {

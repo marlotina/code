@@ -12,14 +12,15 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
     {
         public async Task<SuperHuman> Add(SuperHuman supperHuman)
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["connSpionshopString"].ConnectionString))
+            using (SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;"))
             {
                 connection.Open();
-                string sql = "INSERT INTO klant(klant_id,naam,voornaam) VALUES(@param1,@param2,@param3)";
+                string sql = "INSERT INTO TblSuperHuman(Id, Name, Type) VALUES(@id,@name,@type)";
                 using (SqlCommand cmd = new SqlCommand(sql, connection))
                 {
-                    cmd.Parameters.Add("@param1", SqlDbType.Int).Value = supperHuman.Name;
-                    cmd.Parameters.Add("@param2", SqlDbType.VarChar, 50).Value = supperHuman.GetType();
+                    cmd.Parameters.AddWithValue("@id", supperHuman.Id);
+                    cmd.Parameters.AddWithValue("@name", supperHuman.Name);
+                    cmd.Parameters.AddWithValue("@type", supperHuman.Type);
                     cmd.CommandType = CommandType.Text;
                     await cmd.ExecuteNonQueryAsync();
                 }
@@ -32,7 +33,7 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
         {
             string sql = $"DELETE FROM TblSuperHuman WHERE Id = @superHumanId'";
 
-            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["connSpionshopString"].ConnectionString))
+            using (var connection = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;"))
             {
                 using (var command = new SqlCommand(sql, connection))
                 {

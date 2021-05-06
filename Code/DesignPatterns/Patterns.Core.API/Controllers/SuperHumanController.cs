@@ -34,9 +34,20 @@ namespace Patterns.Core.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(EnumSuperHumanType type)
         {
-            var result = await this.iSuperHumanQueryServices.GetSuperHuman(type);
-            var response = result.Select(x => this.iSuperHumanMapper.Convert(x));
-            return this.Ok(response);
+            try
+            {
+                var result = await this.iSuperHumanQueryServices.GetSuperHuman(type);
+                if (result != null)
+                {
+                    var response = result.Select(x => this.iSuperHumanMapper.Convert(x));
+                    return this.Ok(response);
+                }
+
+                return this.NoContent();
+            }
+            catch (Exception ex) {
+                return this.Problem(ex.InnerException.Message);
+            }
         }
 
         // POST api/<SuperHumanController>

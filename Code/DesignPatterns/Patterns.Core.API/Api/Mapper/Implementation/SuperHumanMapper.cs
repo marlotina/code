@@ -13,7 +13,8 @@ namespace Patterns.Core.API.Api.Mapper.Implementation
             {
                 result = new SuperHuman
                 {
-                    Name = source.Name
+                    Name = source.Name,
+                    Type = source.Type
                 };
             }
 

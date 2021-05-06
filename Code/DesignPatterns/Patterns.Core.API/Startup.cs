@@ -35,11 +35,15 @@ namespace Patterns.Core.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ISuperHumanMapper, SuperHumanMapper>();
-            services.AddTransient<IManageSuperHumanRepository, ManageSuperHumanDB>();
+
             services.AddTransient<IManageSuperHuman, ManageSuperHuman>();
+            services.AddTransient<ISuperHumanQueryServices, SuperHumanQueryServices>();
 
             services.AddTransient<ISearchStrategy, SearchHerosStrategy>();
             services.AddTransient<ISearchStrategy, SearchVilliansStrategy>();
+
+            services.AddTransient<IManageSuperHumanRepository, ManageSuperHumanDB>();
+            services.AddTransient<ISuperHumanQueryRepository, SuperHumanQueryDBRepository>();
 
 
             services.AddControllers();
