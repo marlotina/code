@@ -1,7 +1,7 @@
-﻿using Patterns.Core.API.Domain.Model;
+﻿using Patterns.Core.API.Configuration.Contract;
+using Patterns.Core.API.Domain.Model;
 using Patterns.Core.API.Domain.Repository;
 using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -10,9 +10,16 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
 {
     public class ManageSuperHumanDB : IManageSuperHumanRepository
     {
+        private readonly IProofConfiguration iProofConfiguration;
+
+        public ManageSuperHumanDB(IProofConfiguration iProofConfiguration)
+        {
+            this.iProofConfiguration = iProofConfiguration;
+        }
+
         public async Task<SuperHuman> Add(SuperHuman supperHuman)
         {
-            using (SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;"))
+            using (SqlConnection connection = new SqlConnection(this.iProofConfiguration.ConnectionString))
             {
                 connection.Open();
                 string sql = "INSERT INTO TblSuperHuman(Id, Name, Type) VALUES(@id,@name,@type)";
@@ -31,18 +38,26 @@ namespace Patterns.Core.API.Infrastrucutre.Repository
 
         public async Task<bool> Delete(Guid supperHumanId)
         {
-            string sql = $"DELETE FROM TblSuperHuman WHERE Id = @superHumanId'";
-
-            using (var connection = new SqlConnection(@"Data Source=DESKTOP-JIFKME0\SQLEXPRESS;Initial Catalog=ProofDb;Integrated Security=SSPI;"))
+            try
             {
-                using (var command = new SqlCommand(sql, connection))
-                {
-                    command.Parameters.AddWithValue("superHumanId", supperHumanId);
-                    await command.ExecuteNonQueryAsync();
-                }
-            }
+                string sql = $"DELETE FROM TblSuperHuman WHERE Id = @superHumanId";
 
-            return true;
+                using (var connection = new SqlConnection(this.iProofConfiguration.ConnectionString))
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@superHumanId", supperHumanId);
+                        await command.ExecuteNonQueryAsync();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

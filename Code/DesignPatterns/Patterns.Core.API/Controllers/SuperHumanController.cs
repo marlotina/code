@@ -3,9 +3,7 @@ using Patterns.Core.API.Api.Mapper.Contract;
 using Patterns.Core.API.Api.Model;
 using Patterns.Core.API.Application.Contract;
 using Patterns.Core.API.Domain.enums;
-using Patterns.Core.API.Domain.Repository;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
