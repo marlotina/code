@@ -17,13 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pattern.Strategy", "Pattern
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pattern.Observer", "Pattern.Observer\Pattern.Observer.csproj", "{10CB1A45-8407-4246-8989-BE121BEC36C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Patterns.Core.API", "Patterns.Core.API\Patterns.Core.API.csproj", "{91BDB8E2-AE08-44B6-BF83-B120CA53C99C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patterns.Core.API", "Patterns.Core.API\Patterns.Core.API.csproj", "{91BDB8E2-AE08-44B6-BF83-B120CA53C99C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{7A927108-9930-4ED9-A847-3B2E4112A4F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proof.Integration.Tests", "Proof.Integration.Tests\Proof.Integration.Tests.csproj", "{E3C4AADD-BF9E-4E1C-8111-42FC82CC4570}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proof.Dependency.Injection.Standar", "Proof.Dependency.Injection.Standar\Proof.Dependency.Injection.Standar.csproj", "{924E7BB0-29E5-433C-93D3-B21A6B0E1F4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proof.Dependency.Injection.Standar", "Proof.Dependency.Injection.Standar\Proof.Dependency.Injection.Standar.csproj", "{924E7BB0-29E5-433C-93D3-B21A6B0E1F4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +61,6 @@ Global
 		{91BDB8E2-AE08-44B6-BF83-B120CA53C99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91BDB8E2-AE08-44B6-BF83-B120CA53C99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91BDB8E2-AE08-44B6-BF83-B120CA53C99C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3C4AADD-BF9E-4E1C-8111-42FC82CC4570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3C4AADD-BF9E-4E1C-8111-42FC82CC4570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3C4AADD-BF9E-4E1C-8111-42FC82CC4570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3C4AADD-BF9E-4E1C-8111-42FC82CC4570}.Release|Any CPU.Build.0 = Release|Any CPU
 		{924E7BB0-29E5-433C-93D3-B21A6B0E1F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{924E7BB0-29E5-433C-93D3-B21A6B0E1F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{924E7BB0-29E5-433C-93D3-B21A6B0E1F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU

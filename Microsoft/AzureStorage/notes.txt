@@ -11,3 +11,27 @@ az storage account show-connection-string \
     --resource-group <group> \
     --name <name> \
     --query connectionString
+
+
+
+
+    az storage account create --name stia06052020 -g learn-a0fcf8bd-3257-477a-b38e-c93db3959576 --kind StorageV2 --sku Standard_LRS
+
+
+
+dotnet new console -n QueueApp
+
+cd QueueApp
+dotnet build
+az storage account list
+
+az storage account show-connection-string --name stia06052020 --resource-group learn-a0fcf8bd-3257-477a-b38e-c93db3959576
+
+az storage message peek --queue-name newsqueue --connection-string <connection-string> 
+
+
+
+dotnet add package WindowsAzure.Storage
+
+
+az storage message peek --queue-name newsqueue --connection-string DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=stia06052020;AccountKey=K2dShFZMDflJTIO+9Z58UajifMCBGMBUu6DGs8th0ezhigUwpKnk8Q7QItWWqQMWUP4aMC7YGnylUp4SbVtHYg==

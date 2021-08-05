@@ -22,5 +22,10 @@ namespace Patterns.Core.API.Application.Patterns.Implementation
         {
             return await this.iSuperHumanQueryRepository.GetGetHeros();
         }
+
+        public override bool IsMatch(EnumSuperHumanType type)
+        {
+            return type == this.Type;
+        }
     }
 }
